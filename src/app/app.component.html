@@ -1,0 +1,92 @@
+<div class="container">
+
+  <div class="container" style="background-color: rgb(255, 38, 0);">
+    <h2 style="color:white;" class="text-center"> Course & Students Maintenance </h2>
+  </div>
+
+  <div class="container" style="margin-top: 5em;">
+
+    <div class="row">
+
+      <div class="col-xs-6">
+        <h3 class="text-center">Course</h3>
+      </div>
+
+      <div class="col-xs-6">
+
+          <div class="row" style="margin-top: 1em;">
+            <div class="col-sm-8">
+              <select name="SelectedCourseFromList" class="form-control" [(ngModel)]="SelectedCourseFromList" (click) = "StudentViewDisplay()">
+                <option *ngFor="let option of CourseList" [value]="option" >{{option}}</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="row" style="margin-top: 1em;">
+            <div class="col-sm-8">
+              <button class="btn btn-primary btn-lg btn-block" (click) = "AddNewCourseFun()"> Add New Course</button>
+            </div>
+          </div>
+
+          <div class="row" *ngIf = "NewCourseInputView" style="margin-top: 1em;">
+            <div class="col-sm-8">
+              <input type="text" class="form-control" [(ngModel)] = "NewCourseInput"> 
+            </div>
+            <div class="col-sm-8" style="margin-top: 1em;">
+              <button type="button" class="btn btn-primary btn-sm" (click) = "CourseAcceptFun()">
+                <span class="glyphicon glyphicon-ok"></span>  
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" (click) = "CourseRejectFun()">
+                <span class="glyphicon glyphicon-remove"></span>  
+              </button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
+
+  <div *ngIf = "StudentView" class="container" style="margin-top: 5em;">
+
+    <div class="row">
+
+      <div class="col-xs-6">
+        <h3 class="text-center">Students</h3>
+      </div>
+
+      <div class="col-xs-6">
+
+        <div class="row" style="margin-top: 1em;">
+          <div class="col-sm-8">
+            <select name="SelectedStudent" class="form-control" [(ngModel)]="SelectedStudent">
+              <option *ngFor="let option of StudentList" [value]="option" >{{option}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 1em;">
+          <div class="col-sm-8">
+            <button class="btn btn-primary btn-lg btn-block" (click) = "NewStudentInputView = true"> Add New Student</button>
+          </div>
+        </div>
+
+        <div class="row" *ngIf = "NewStudentInputView" style="margin-top: 1em;">
+          <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)] = "NewStudentInput"> 
+          </div>
+          <div class="col-sm-8" style="margin-top: 1em;">
+            <button type="button" class="btn btn-primary btn-sm" (click) = "StudentAcceptFun()">
+              <span class="glyphicon glyphicon-ok"></span>  
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click) = "StudentRejectFun()">
+              <span class="glyphicon glyphicon-remove"></span>  
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+</div>
